@@ -69,7 +69,7 @@ else
         </tbody>
     </table>
 }
-
+@inject NavigationManager NavigationManager
 @code {
     [Parameter] public long PlaylistId { get; set; }
     [Inject] IDbContextFactory<ChinookContext> DbFactory { get; set; }
@@ -194,6 +194,7 @@ else
                     if (deletedId > 0)
                     {
                         this.InfoMessage = "Playlist Deleted Successfully!";
+                        NavigationManager.NavigateTo("/", true);
                     }
                     else
                     {
